@@ -1,6 +1,4 @@
 class ReportController < ApplicationController
-  protect_from_forgery with: :null_session
-
   def create
     @report = Report.new(report_param)
     if @report.save
@@ -36,5 +34,4 @@ class ReportController < ApplicationController
   def report_update_params
     params.require(:report).permit(:status)
   end
-
 end

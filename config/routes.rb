@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   post "user/new", to: "user#create"
   post "report/new", to: "report#create"
   get "report", to: "report#index"
-  patch "report/update/:id", to: "report#update" 
+  patch "report/update/:id", to: "report#update"
   delete "report/delete/:id", to: "report#delete"
   root "report#index"
 end
