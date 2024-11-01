@@ -21,7 +21,14 @@ class ReportController < ApplicationController
       render json: @report.errors, status: :unprocessable_entity
     end
   end
-
+  def delete
+    @report = Report.find(params[:id])
+    if @report.delete
+      render json: { message: "the report has been deleted", data: @report }, status: :ok
+    else
+      render json: @report.errors, status: :unprocessable_entity
+    end
+  end
   private
   def report_param
     params.require(:report.id).permit(:status, :description)
